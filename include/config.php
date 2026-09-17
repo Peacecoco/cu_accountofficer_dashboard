@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+date_default_timezone_set('Africa/Lagos');
+define('DB_HOST', getenv('CU_ACCOUNTOFFICER_DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('CU_ACCOUNTOFFICER_DB_NAME') ?: 'idcard_system');
+define('DB_USER', getenv('CU_ACCOUNTOFFICER_DB_USER') ?: 'root');
+define('DB_PASS', getenv('CU_ACCOUNTOFFICER_DB_PASS') ?: '');
+try {
+    $con = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8mb4', DB_USER, DB_PASS, [PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC]);
+    $con->exec("SET time_zone = '+01:00'");
+} catch (PDOException) { http_response_code(500); header('Content-Type: application/json'); echo json_encode(['success'=>false,'message'=>'Database connection failed.']); exit; }
