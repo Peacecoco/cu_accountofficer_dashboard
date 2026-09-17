@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-require_once __DIR__.'/../../idcard-system/shared/lifecycle/bootstrap.php';
+require_once __DIR__.'/../domain/bootstrap.php';
 use CU\IdCard\{Identity,PortalSessionAdapter,Lifecycle,LocalPaymentSimulator};
 if (PHP_SAPI !== 'cli' && session_status() !== PHP_SESSION_ACTIVE) session_start(['cookie_httponly'=>true,'cookie_samesite'=>'Lax','cookie_secure'=>!empty($_SERVER['HTTPS'])&&$_SERVER['HTTPS']!=='off']);
 function currentAccountOfficer(): Identity {

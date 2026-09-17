@@ -12,7 +12,7 @@ The default queue shows only `approved` refunds. Search is server-side by refere
 
 The Account Officer can inspect safe student, application, payment, stored refund amount, approval, and actual lifecycle-event details. **Mark as Credited** is an operational confirmation; it does not send money through a banking or payment-provider API.
 
-The shared lifecycle service enforces `approved → credited`, records `creditedat`, `creditedby`, and one `refund_credited` event. The refund amount comes from `idcardrefunds` and cannot be changed by the browser. Duplicate credit is rejected through transactional locking.
+The domain lifecycle service enforces `approved → credited`, records `creditedat`, `creditedby`, and one `refund_credited` event. The refund amount comes from `idcardrefunds` and cannot be changed by the browser. Duplicate credit is rejected through transactional locking.
 
 ## Authentication and configuration
 
@@ -25,7 +25,7 @@ CU_AUTH_BYPASS=1
 CU_AUTH_BYPASS_ACCOUNT_ACTOR=DEV_ACCOUNT_OFFICER
 ```
 
-CSRF remains required. 
+CSRF remains required.
 
 ## API
 
